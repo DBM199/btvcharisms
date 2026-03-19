@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiritual Gifts & Charisms Assessment — Beyond the Veil</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #081228;
+  --navy-mid:   #0d1e3f;
+  --navy-lt:    #132548;
+  --gold:       #BF8B1D;
+  --gold-lt:    #d4a43a;
+  --red:        #CA0000;
+  --white:      #FFFFFF;
+  --tlight:     rgba(255,255,255,0.82);
+  --tmuted:     rgba(255,255,255,0.42);
+  --border:     rgba(191,139,29,0.28);
+  --cardbg:     rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Source Sans 3',sans-serif;font-weight:300;background:var(--navy);color:var(--white);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 20%,rgba(191,139,29,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(202,0,0,.05) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 20px 80px;}
+
+/* HEADER */
+header{text-align:center;padding:52px 0 44px;border-bottom:1px solid var(--border);margin-bottom:44px;}
+.brand-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;}
+.brand-line{width:36px;height:1px;background:var(--gold);opacity:.5;}
+.brand-name{font-weight:700;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);}
+h1{font-family:'EB Garamond',serif;font-size:clamp(34px,5.5vw,54px);font-weight:400;line-height:1.1;color:var(--white);margin-bottom:10px;}
+h1 em{font-style:italic;color:var(--gold-lt);}
+.sub{font-size:15px;color:var(--tlight);line-height:1.75;max-width:490px;margin:14px auto 0;font-weight:300;}
+
+/* VERSE */
+.verse{border-left:3px solid var(--gold);padding:18px 22px;margin-bottom:32px;background:rgba(191,139,29,.06);font-family:'EB Garamond',serif;font-size:17px;font-style:italic;line-height:1.85;color:rgba(255,255,255,.78);}
+.verse cite{display:block;margin-top:10px;font-style:normal;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+/* INSTRUCTIONS */
+.instr{background:rgba(255,255,255,.035);border:1px solid var(--border);padding:20px 24px;margin-bottom:40px;}
+.instr-h{font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.instr p{font-size:14px;line-height:1.7;color:var(--tlight);}
+.scale-row{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;align-items:center;}
+.scale-item{display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.6);}
+.dot{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.d0{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);}
+.d1{background:rgba(191,139,29,.22);border:1px solid rgba(191,139,29,.4);color:var(--gold-lt);}
+.d2{background:rgba(191,139,29,.55);border:1px solid var(--gold);color:#fff;}
+.d3{background:var(--gold);border:1px solid var(--gold-lt);color:var(--navy);}
+
+/* PROGRESS */
+.prog-lbl{font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(191,139,29,.55);text-align:right;margin-bottom:5px;}
+.prog-track{background:rgba(255,255,255,.06);height:3px;margin-bottom:40px;overflow:hidden;}
+.prog-fill{height:100%;width:0%;background:linear-gradient(to right,rgba(191,139,29,.6),var(--gold));transition:width .4s ease;}
+
+/* SECTION LABEL */
+.section-label{display:flex;align-items:center;gap:12px;font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(191,139,29,.5);margin-bottom:18px;margin-top:36px;}
+.section-line{flex:1;height:1px;background:linear-gradient(to right,rgba(191,139,29,.3),transparent);}
+
+/* QUESTION CARD */
+.question-card{background:var(--cardbg);border:1px solid rgba(255,255,255,.07);margin-bottom:12px;padding:18px 20px;transition:border-color .2s;}
+.question-card:hover{border-color:rgba(191,139,29,.28);}
+.question-card.answered{border-color:rgba(191,139,29,.38);background:rgba(255,255,255,.05);}
+.q-num{font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(191,139,29,.4);margin-bottom:7px;}
+.q-text{font-family:'EB Garamond',serif;font-size:18px;line-height:1.5;color:var(--white);margin-bottom:13px;}
+.rating-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.r-lbl{font-size:11px;color:rgba(255,255,255,.32);font-style:italic;}
+.r-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(191,139,29,.35);background:transparent;color:rgba(255,255,255,.6);font-size:13px;font-weight:300;cursor:pointer;transition:all .15s;font-family:'Source Sans 3',sans-serif;display:flex;align-items:center;justify-content:center;}
+.r-btn:hover{border-color:var(--gold);background:rgba(191,139,29,.12);color:var(--gold-lt);}
+.r-btn.sel{background:var(--gold);border-color:var(--gold-lt);color:var(--navy);font-weight:700;}
+
+/* SUBMIT */
+.submit-area{text-align:center;margin-top:44px;}
+.btn-submit{font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;padding:15px 48px;background:rgba(191,139,29,.25);color:rgba(255,255,255,.3);border:none;cursor:not-allowed;transition:all .2s;font-family:'Source Sans 3',sans-serif;}
+.btn-submit.ready{background:var(--gold);color:var(--navy);cursor:pointer;}
+.btn-submit.ready:hover{background:var(--gold-lt);}
+.submit-note{font-size:12px;color:rgba(255,255,255,.32);margin-top:10px;}
+
+/* RESULTS (hidden initially) */
+#results{display:none;}
+.results-hdr{text-align:center;padding:52px 0 40px;border-bottom:1px solid var(--border);margin-bottom:40px;}
+h2{font-family:'EB Garamond',serif;font-size:clamp(30px,4.5vw,48px);font-weight:400;line-height:1.1;color:var(--white);}
+h2 em{font-style:italic;color:var(--gold-lt);}
+.results-sub{font-size:14px;color:var(--tlight);margin-top:12px;line-height:1.7;}
+
+/* TOP PANEL */
+.top-panel{background:linear-gradient(135deg,var(--navy-mid) 0%,#0a1830 100%);border:1px solid rgba(191,139,29,.45);border-top:3px solid var(--gold);padding:32px 34px;margin-bottom:36px;}
+.top-panel-h{font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.top-names{font-family:'EB Garamond',serif;font-size:clamp(20px,3.5vw,28px);font-style:italic;color:var(--white);line-height:1.4;margin-bottom:12px;}
+.top-names span{color:var(--gold-lt);}
+.top-note{font-size:13px;line-height:1.7;color:rgba(255,255,255,.5);}
+
+/* RESULT CARDS */
+.r-card{background:var(--cardbg);border:1px solid rgba(255,255,255,.07);margin-bottom:12px;overflow:hidden;}
+.r-card.top{background:rgba(191,139,29,.04);border-color:rgba(191,139,29,.4);}
+.r-card-hdr{display:flex;align-items:center;padding:16px 20px;cursor:pointer;gap:12px;}
+.r-rank{font-family:'EB Garamond',serif;font-size:24px;color:rgba(191,139,29,.28);width:30px;flex-shrink:0;line-height:1;}
+.r-card.top .r-rank{color:var(--gold);}
+.r-name-wrap{flex:1;}
+.r-name{font-family:'EB Garamond',serif;font-size:20px;font-weight:400;color:var(--white);}
+.top-badge{font-weight:700;font-size:8px;letter-spacing:2px;background:var(--gold);color:var(--navy);padding:2px 7px;margin-left:8px;vertical-align:middle;}
+.bar-wrap{flex:1;max-width:200px;}
+.bar-track{height:4px;background:rgba(255,255,255,.06);overflow:hidden;}
+.bar-fill{height:100%;width:0%;background:linear-gradient(to right,rgba(191,139,29,.5),var(--gold));transition:width .9s ease;}
+.r-card.top .bar-fill{background:linear-gradient(to right,var(--gold),var(--gold-lt));}
+.bar-lbl{font-size:10px;color:rgba(191,139,29,.55);margin-top:3px;}
+.chevron{font-size:14px;color:rgba(191,139,29,.4);flex-shrink:0;transition:transform .3s;}
+.chevron.open{transform:rotate(180deg);}
+.r-card-body{display:none;padding:0 20px 20px 62px;border-top:1px solid rgba(255,255,255,.06);}
+.r-card-body.open{display:block;}
+.gift-desc{font-family:'EB Garamond',serif;font-size:16px;line-height:1.85;color:rgba(255,255,255,.68);margin-top:14px;}
+.gift-scripture{font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);opacity:.65;margin-top:10px;}
+
+.btn-restart{font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;padding:11px 34px;background:transparent;color:rgba(191,139,29,.6);border:1px solid rgba(191,139,29,.3);cursor:pointer;margin:44px auto 0;display:block;font-family:'Source Sans 3',sans-serif;transition:all .2s;}
+.btn-restart:hover{border-color:var(--gold);color:var(--gold);}
+
+@media(max-width:600px){.bar-wrap{display:none;}.r-card-body{padding-left:20px;}.r-btn{width:32px;height:32px;font-size:12px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ASSESSMENT -->
+<div id="assessment">
+  <header>
+    <div class="brand-row"><div class="brand-line"></div><span class="brand-name">Beyond the Veil</span><div class="brand-line"></div></div>
+    <h1>Spiritual Gifts &amp;<br><em>Charisms</em> Assessment</h1>
+    <p class="sub">A prayerful inventory to help you discern the unique gifts the Holy Spirit has entrusted to you for the building up of the Body of Christ.</p>
+  </header>
+
+  <div class="verse">
+    "Now there are varieties of gifts, but the same Spirit; and there are varieties of service, but the same Lord; and there are varieties of activities, but it is the same God who empowers them all in everyone."
+    <cite>1 Corinthians 12:4–6</cite>
+  </div>
+
+  <div class="instr">
+    <div class="instr-h">How to Answer</div>
+    <p>Respond honestly based on your actual experience and how those who know you well would describe you — not who you aspire to be, but who you genuinely are. Consider your whole life, not a single event.</p>
+    <div class="scale-row">
+      <div class="scale-item"><div class="dot d0">0</div><span>Not at all like me</span></div>
+      <div class="scale-item"><div class="dot d1">1</div><span>Somewhat like me</span></div>
+      <div class="scale-item"><div class="dot d2">2</div><span>Mostly like me</span></div>
+      <div class="scale-item"><div class="dot d3">3</div><span>Very much like me</span></div>
+    </div>
+  </div>
+
+  <div class="prog-lbl" id="prog-lbl">0 of 80 answered</div>
+  <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+
+  <div id="q-container">
+<div class="section-label"><span>Part 1 of 4</span><div class="section-line"></div></div>
+<div class="question-card" id="q-administration-0">
+  <div class="q-num">Question 1</div>
+  <div class="q-text">I enjoy creating systems and organizational structures for groups or ministries.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="administration-0" data-val="0">0</button>
+    <button class="r-btn" data-key="administration-0" data-val="1">1</button>
+    <button class="r-btn" data-key="administration-0" data-val="2">2</button>
+    <button class="r-btn" data-key="administration-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-administration-1">
+  <div class="q-num">Question 2</div>
+  <div class="q-text">I am good at managing the details of long-range projects or events.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="administration-1" data-val="0">0</button>
+    <button class="r-btn" data-key="administration-1" data-val="1">1</button>
+    <button class="r-btn" data-key="administration-1" data-val="2">2</button>
+    <button class="r-btn" data-key="administration-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-administration-2">
+  <div class="q-num">Question 3</div>
+  <div class="q-text">Others often look to me to plan and coordinate group efforts.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="administration-2" data-val="0">0</button>
+    <button class="r-btn" data-key="administration-2" data-val="1">1</button>
+    <button class="r-btn" data-key="administration-2" data-val="2">2</button>
+    <button class="r-btn" data-key="administration-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-administration-3">
+  <div class="q-num">Question 4</div>
+  <div class="q-text">I find satisfaction in turning a chaotic situation into an organized one.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="administration-3" data-val="0">0</button>
+    <button class="r-btn" data-key="administration-3" data-val="1">1</button>
+    <button class="r-btn" data-key="administration-3" data-val="2">2</button>
+    <button class="r-btn" data-key="administration-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-apostleship-0">
+  <div class="q-num">Question 5</div>
+  <div class="q-text">I feel a strong calling to start new ministries, churches, or mission outreaches.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="apostleship-0" data-val="0">0</button>
+    <button class="r-btn" data-key="apostleship-0" data-val="1">1</button>
+    <button class="r-btn" data-key="apostleship-0" data-val="2">2</button>
+    <button class="r-btn" data-key="apostleship-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-apostleship-1">
+  <div class="q-num">Question 6</div>
+  <div class="q-text">I am comfortable moving into new or unfamiliar territories for the sake of the Gospel.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="apostleship-1" data-val="0">0</button>
+    <button class="r-btn" data-key="apostleship-1" data-val="1">1</button>
+    <button class="r-btn" data-key="apostleship-1" data-val="2">2</button>
+    <button class="r-btn" data-key="apostleship-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-apostleship-2">
+  <div class="q-num">Question 7</div>
+  <div class="q-text">I tend to raise up and develop leaders who then lead others.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="apostleship-2" data-val="0">0</button>
+    <button class="r-btn" data-key="apostleship-2" data-val="1">1</button>
+    <button class="r-btn" data-key="apostleship-2" data-val="2">2</button>
+    <button class="r-btn" data-key="apostleship-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-apostleship-3">
+  <div class="q-num">Question 8</div>
+  <div class="q-text">I am willing to take significant personal risks to advance the Kingdom of God.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="apostleship-3" data-val="0">0</button>
+    <button class="r-btn" data-key="apostleship-3" data-val="1">1</button>
+    <button class="r-btn" data-key="apostleship-3" data-val="2">2</button>
+    <button class="r-btn" data-key="apostleship-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-discernment-0">
+  <div class="q-num">Question 9</div>
+  <div class="q-text">I can often sense when something is spiritually right or wrong in a situation.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="discernment-0" data-val="0">0</button>
+    <button class="r-btn" data-key="discernment-0" data-val="1">1</button>
+    <button class="r-btn" data-key="discernment-0" data-val="2">2</button>
+    <button class="r-btn" data-key="discernment-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-discernment-1">
+  <div class="q-num">Question 10</div>
+  <div class="q-text">I am able to identify when teaching or counsel is inconsistent with Scripture.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="discernment-1" data-val="0">0</button>
+    <button class="r-btn" data-key="discernment-1" data-val="1">1</button>
+    <button class="r-btn" data-key="discernment-1" data-val="2">2</button>
+    <button class="r-btn" data-key="discernment-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-discernment-2">
+  <div class="q-num">Question 11</div>
+  <div class="q-text">Others have confirmed that I seem to 'read' people or situations with unusual accuracy.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="discernment-2" data-val="0">0</button>
+    <button class="r-btn" data-key="discernment-2" data-val="1">1</button>
+    <button class="r-btn" data-key="discernment-2" data-val="2">2</button>
+    <button class="r-btn" data-key="discernment-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-discernment-3">
+  <div class="q-num">Question 12</div>
+  <div class="q-text">I feel a strong internal warning when deception or false teaching is present.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="discernment-3" data-val="0">0</button>
+    <button class="r-btn" data-key="discernment-3" data-val="1">1</button>
+    <button class="r-btn" data-key="discernment-3" data-val="2">2</button>
+    <button class="r-btn" data-key="discernment-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-evangelism-0">
+  <div class="q-num">Question 13</div>
+  <div class="q-text">I naturally and frequently find opportunities to share the Gospel with non-believers.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="evangelism-0" data-val="0">0</button>
+    <button class="r-btn" data-key="evangelism-0" data-val="1">1</button>
+    <button class="r-btn" data-key="evangelism-0" data-val="2">2</button>
+    <button class="r-btn" data-key="evangelism-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-evangelism-1">
+  <div class="q-num">Question 14</div>
+  <div class="q-text">I feel a deep burden in my heart for people who do not know Christ.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="evangelism-1" data-val="0">0</button>
+    <button class="r-btn" data-key="evangelism-1" data-val="1">1</button>
+    <button class="r-btn" data-key="evangelism-1" data-val="2">2</button>
+    <button class="r-btn" data-key="evangelism-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-evangelism-2">
+  <div class="q-num">Question 15</div>
+  <div class="q-text">I am able to explain the Gospel clearly in ways that non-believers can understand.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="evangelism-2" data-val="0">0</button>
+    <button class="r-btn" data-key="evangelism-2" data-val="1">1</button>
+    <button class="r-btn" data-key="evangelism-2" data-val="2">2</button>
+    <button class="r-btn" data-key="evangelism-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-evangelism-3">
+  <div class="q-num">Question 16</div>
+  <div class="q-text">Seeing someone come to faith in Christ is among the greatest joys of my life.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="evangelism-3" data-val="0">0</button>
+    <button class="r-btn" data-key="evangelism-3" data-val="1">1</button>
+    <button class="r-btn" data-key="evangelism-3" data-val="2">2</button>
+    <button class="r-btn" data-key="evangelism-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-exhortation-0">
+  <div class="q-num">Question 17</div>
+  <div class="q-text">People often come to me when they need encouragement or a word of hope.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="exhortation-0" data-val="0">0</button>
+    <button class="r-btn" data-key="exhortation-0" data-val="1">1</button>
+    <button class="r-btn" data-key="exhortation-0" data-val="2">2</button>
+    <button class="r-btn" data-key="exhortation-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-exhortation-1">
+  <div class="q-num">Question 18</div>
+  <div class="q-text">I am able to speak truth into difficult situations in a way that motivates and uplifts.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="exhortation-1" data-val="0">0</button>
+    <button class="r-btn" data-key="exhortation-1" data-val="1">1</button>
+    <button class="r-btn" data-key="exhortation-1" data-val="2">2</button>
+    <button class="r-btn" data-key="exhortation-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-exhortation-2">
+  <div class="q-num">Question 19</div>
+  <div class="q-text">I can tell when someone needs a gentle challenge as much as comfort.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="exhortation-2" data-val="0">0</button>
+    <button class="r-btn" data-key="exhortation-2" data-val="1">1</button>
+    <button class="r-btn" data-key="exhortation-2" data-val="2">2</button>
+    <button class="r-btn" data-key="exhortation-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-exhortation-3">
+  <div class="q-num">Question 20</div>
+  <div class="q-text">I find it natural to come alongside struggling believers and walk with them toward growth.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="exhortation-3" data-val="0">0</button>
+    <button class="r-btn" data-key="exhortation-3" data-val="1">1</button>
+    <button class="r-btn" data-key="exhortation-3" data-val="2">2</button>
+    <button class="r-btn" data-key="exhortation-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="section-label"><span>Part 2 of 4</span><div class="section-line"></div></div>
+<div class="question-card" id="q-faith-0">
+  <div class="q-num">Question 21</div>
+  <div class="q-text">I trust God to provide even when circumstances seem impossible or hopeless.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="faith-0" data-val="0">0</button>
+    <button class="r-btn" data-key="faith-0" data-val="1">1</button>
+    <button class="r-btn" data-key="faith-0" data-val="2">2</button>
+    <button class="r-btn" data-key="faith-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-faith-1">
+  <div class="q-num">Question 22</div>
+  <div class="q-text">I regularly step out in faith, confident that God will work in ways others cannot yet see.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="faith-1" data-val="0">0</button>
+    <button class="r-btn" data-key="faith-1" data-val="1">1</button>
+    <button class="r-btn" data-key="faith-1" data-val="2">2</button>
+    <button class="r-btn" data-key="faith-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-faith-2">
+  <div class="q-num">Question 23</div>
+  <div class="q-text">Others have commented on the unusual depth of my trust and confidence in God.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="faith-2" data-val="0">0</button>
+    <button class="r-btn" data-key="faith-2" data-val="1">1</button>
+    <button class="r-btn" data-key="faith-2" data-val="2">2</button>
+    <button class="r-btn" data-key="faith-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-faith-3">
+  <div class="q-num">Question 24</div>
+  <div class="q-text">I am not easily shaken by setbacks because I believe God is sovereign and good.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="faith-3" data-val="0">0</button>
+    <button class="r-btn" data-key="faith-3" data-val="1">1</button>
+    <button class="r-btn" data-key="faith-3" data-val="2">2</button>
+    <button class="r-btn" data-key="faith-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-giving-0">
+  <div class="q-num">Question 25</div>
+  <div class="q-text">I find great joy in meeting needs generously, often beyond what others would consider.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="giving-0" data-val="0">0</button>
+    <button class="r-btn" data-key="giving-0" data-val="1">1</button>
+    <button class="r-btn" data-key="giving-0" data-val="2">2</button>
+    <button class="r-btn" data-key="giving-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-giving-1">
+  <div class="q-num">Question 26</div>
+  <div class="q-text">I manage my finances carefully so I can give more to the work of the Kingdom.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="giving-1" data-val="0">0</button>
+    <button class="r-btn" data-key="giving-1" data-val="1">1</button>
+    <button class="r-btn" data-key="giving-1" data-val="2">2</button>
+    <button class="r-btn" data-key="giving-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-giving-2">
+  <div class="q-num">Question 27</div>
+  <div class="q-text">I feel grateful when someone shares a need with me that I am able to meet.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="giving-2" data-val="0">0</button>
+    <button class="r-btn" data-key="giving-2" data-val="1">1</button>
+    <button class="r-btn" data-key="giving-2" data-val="2">2</button>
+    <button class="r-btn" data-key="giving-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-giving-3">
+  <div class="q-num">Question 28</div>
+  <div class="q-text">Giving is one of the primary ways I feel I am partnering with God in His mission.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="giving-3" data-val="0">0</button>
+    <button class="r-btn" data-key="giving-3" data-val="1">1</button>
+    <button class="r-btn" data-key="giving-3" data-val="2">2</button>
+    <button class="r-btn" data-key="giving-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-healing-0">
+  <div class="q-num">Question 29</div>
+  <div class="q-text">I pray over the sick with genuine faith that God may heal them.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="healing-0" data-val="0">0</button>
+    <button class="r-btn" data-key="healing-0" data-val="1">1</button>
+    <button class="r-btn" data-key="healing-0" data-val="2">2</button>
+    <button class="r-btn" data-key="healing-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-healing-1">
+  <div class="q-num">Question 30</div>
+  <div class="q-text">I have seen physical or emotional healing occur when I have prayed with others.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="healing-1" data-val="0">0</button>
+    <button class="r-btn" data-key="healing-1" data-val="1">1</button>
+    <button class="r-btn" data-key="healing-1" data-val="2">2</button>
+    <button class="r-btn" data-key="healing-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-healing-2">
+  <div class="q-num">Question 31</div>
+  <div class="q-text">I feel a special compassion toward those who are sick, suffering, or in physical pain.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="healing-2" data-val="0">0</button>
+    <button class="r-btn" data-key="healing-2" data-val="1">1</button>
+    <button class="r-btn" data-key="healing-2" data-val="2">2</button>
+    <button class="r-btn" data-key="healing-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-healing-3">
+  <div class="q-num">Question 32</div>
+  <div class="q-text">I believe God still heals today and I am willing to be used in this way.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="healing-3" data-val="0">0</button>
+    <button class="r-btn" data-key="healing-3" data-val="1">1</button>
+    <button class="r-btn" data-key="healing-3" data-val="2">2</button>
+    <button class="r-btn" data-key="healing-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-helps-0">
+  <div class="q-num">Question 33</div>
+  <div class="q-text">I notice when others are struggling and feel compelled to help without being asked.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="helps-0" data-val="0">0</button>
+    <button class="r-btn" data-key="helps-0" data-val="1">1</button>
+    <button class="r-btn" data-key="helps-0" data-val="2">2</button>
+    <button class="r-btn" data-key="helps-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-helps-1">
+  <div class="q-num">Question 34</div>
+  <div class="q-text">I am happiest when I can help someone else accomplish their work or calling.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="helps-1" data-val="0">0</button>
+    <button class="r-btn" data-key="helps-1" data-val="1">1</button>
+    <button class="r-btn" data-key="helps-1" data-val="2">2</button>
+    <button class="r-btn" data-key="helps-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-helps-2">
+  <div class="q-num">Question 35</div>
+  <div class="q-text">I can sense spiritual and emotional need in others and know how to come alongside them.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="helps-2" data-val="0">0</button>
+    <button class="r-btn" data-key="helps-2" data-val="1">1</button>
+    <button class="r-btn" data-key="helps-2" data-val="2">2</button>
+    <button class="r-btn" data-key="helps-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-helps-3">
+  <div class="q-num">Question 36</div>
+  <div class="q-text">I prefer to work behind the scenes supporting others rather than being in the spotlight.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="helps-3" data-val="0">0</button>
+    <button class="r-btn" data-key="helps-3" data-val="1">1</button>
+    <button class="r-btn" data-key="helps-3" data-val="2">2</button>
+    <button class="r-btn" data-key="helps-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-hospitality-0">
+  <div class="q-num">Question 37</div>
+  <div class="q-text">I genuinely enjoy hosting people in my home and making them feel warmly welcomed.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="hospitality-0" data-val="0">0</button>
+    <button class="r-btn" data-key="hospitality-0" data-val="1">1</button>
+    <button class="r-btn" data-key="hospitality-0" data-val="2">2</button>
+    <button class="r-btn" data-key="hospitality-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-hospitality-1">
+  <div class="q-num">Question 38</div>
+  <div class="q-text">I notice when someone feels left out or like they don't belong and move toward them.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="hospitality-1" data-val="0">0</button>
+    <button class="r-btn" data-key="hospitality-1" data-val="1">1</button>
+    <button class="r-btn" data-key="hospitality-1" data-val="2">2</button>
+    <button class="r-btn" data-key="hospitality-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-hospitality-2">
+  <div class="q-num">Question 39</div>
+  <div class="q-text">I go out of my way to make new people feel comfortable in a group setting.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="hospitality-2" data-val="0">0</button>
+    <button class="r-btn" data-key="hospitality-2" data-val="1">1</button>
+    <button class="r-btn" data-key="hospitality-2" data-val="2">2</button>
+    <button class="r-btn" data-key="hospitality-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-hospitality-3">
+  <div class="q-num">Question 40</div>
+  <div class="q-text">Creating a welcoming, comfortable environment for others brings me real satisfaction.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="hospitality-3" data-val="0">0</button>
+    <button class="r-btn" data-key="hospitality-3" data-val="1">1</button>
+    <button class="r-btn" data-key="hospitality-3" data-val="2">2</button>
+    <button class="r-btn" data-key="hospitality-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="section-label"><span>Part 3 of 4</span><div class="section-line"></div></div>
+<div class="question-card" id="q-intercession-0">
+  <div class="q-num">Question 41</div>
+  <div class="q-text">I spend significant time in prayer specifically on behalf of others.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="intercession-0" data-val="0">0</button>
+    <button class="r-btn" data-key="intercession-0" data-val="1">1</button>
+    <button class="r-btn" data-key="intercession-0" data-val="2">2</button>
+    <button class="r-btn" data-key="intercession-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-intercession-1">
+  <div class="q-num">Question 42</div>
+  <div class="q-text">I feel a deep burden to pray for people and situations until I sense a breakthrough.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="intercession-1" data-val="0">0</button>
+    <button class="r-btn" data-key="intercession-1" data-val="1">1</button>
+    <button class="r-btn" data-key="intercession-1" data-val="2">2</button>
+    <button class="r-btn" data-key="intercession-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-intercession-2">
+  <div class="q-num">Question 43</div>
+  <div class="q-text">Others have told me that my prayers seem particularly effective and focused.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="intercession-2" data-val="0">0</button>
+    <button class="r-btn" data-key="intercession-2" data-val="1">1</button>
+    <button class="r-btn" data-key="intercession-2" data-val="2">2</button>
+    <button class="r-btn" data-key="intercession-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-intercession-3">
+  <div class="q-num">Question 44</div>
+  <div class="q-text">Prayer is not a duty for me but a heartfelt conversation with God for those in need.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="intercession-3" data-val="0">0</button>
+    <button class="r-btn" data-key="intercession-3" data-val="1">1</button>
+    <button class="r-btn" data-key="intercession-3" data-val="2">2</button>
+    <button class="r-btn" data-key="intercession-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-knowledge-0">
+  <div class="q-num">Question 45</div>
+  <div class="q-text">I love studying the Scriptures and often discover truths others have missed.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="knowledge-0" data-val="0">0</button>
+    <button class="r-btn" data-key="knowledge-0" data-val="1">1</button>
+    <button class="r-btn" data-key="knowledge-0" data-val="2">2</button>
+    <button class="r-btn" data-key="knowledge-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-knowledge-1">
+  <div class="q-num">Question 46</div>
+  <div class="q-text">I am able to recall and apply biblical truth to specific situations with accuracy.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="knowledge-1" data-val="0">0</button>
+    <button class="r-btn" data-key="knowledge-1" data-val="1">1</button>
+    <button class="r-btn" data-key="knowledge-1" data-val="2">2</button>
+    <button class="r-btn" data-key="knowledge-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-knowledge-2">
+  <div class="q-num">Question 47</div>
+  <div class="q-text">People often seek me out to explain or shed light on confusing scriptural passages.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="knowledge-2" data-val="0">0</button>
+    <button class="r-btn" data-key="knowledge-2" data-val="1">1</button>
+    <button class="r-btn" data-key="knowledge-2" data-val="2">2</button>
+    <button class="r-btn" data-key="knowledge-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-knowledge-3">
+  <div class="q-num">Question 48</div>
+  <div class="q-text">I have a deep desire to know and understand God's Word at its deepest levels.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="knowledge-3" data-val="0">0</button>
+    <button class="r-btn" data-key="knowledge-3" data-val="1">1</button>
+    <button class="r-btn" data-key="knowledge-3" data-val="2">2</button>
+    <button class="r-btn" data-key="knowledge-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-leadership-0">
+  <div class="q-num">Question 49</div>
+  <div class="q-text">People naturally gravitate to me for direction and look to me in uncertain situations.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="leadership-0" data-val="0">0</button>
+    <button class="r-btn" data-key="leadership-0" data-val="1">1</button>
+    <button class="r-btn" data-key="leadership-0" data-val="2">2</button>
+    <button class="r-btn" data-key="leadership-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-leadership-1">
+  <div class="q-num">Question 50</div>
+  <div class="q-text">I can cast a compelling vision and motivate others to work toward it together.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="leadership-1" data-val="0">0</button>
+    <button class="r-btn" data-key="leadership-1" data-val="1">1</button>
+    <button class="r-btn" data-key="leadership-1" data-val="2">2</button>
+    <button class="r-btn" data-key="leadership-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-leadership-2">
+  <div class="q-num">Question 51</div>
+  <div class="q-text">I am willing to make difficult decisions and lead others through challenging seasons.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="leadership-2" data-val="0">0</button>
+    <button class="r-btn" data-key="leadership-2" data-val="1">1</button>
+    <button class="r-btn" data-key="leadership-2" data-val="2">2</button>
+    <button class="r-btn" data-key="leadership-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-leadership-3">
+  <div class="q-num">Question 52</div>
+  <div class="q-text">I measure my success as a leader by the growth and flourishing of those I lead.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="leadership-3" data-val="0">0</button>
+    <button class="r-btn" data-key="leadership-3" data-val="1">1</button>
+    <button class="r-btn" data-key="leadership-3" data-val="2">2</button>
+    <button class="r-btn" data-key="leadership-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-mercy-0">
+  <div class="q-num">Question 53</div>
+  <div class="q-text">I feel the pain and suffering of others deeply and am moved to respond with compassion.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="mercy-0" data-val="0">0</button>
+    <button class="r-btn" data-key="mercy-0" data-val="1">1</button>
+    <button class="r-btn" data-key="mercy-0" data-val="2">2</button>
+    <button class="r-btn" data-key="mercy-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-mercy-1">
+  <div class="q-num">Question 54</div>
+  <div class="q-text">I can sit with someone in their suffering without feeling the need to 'fix' things.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="mercy-1" data-val="0">0</button>
+    <button class="r-btn" data-key="mercy-1" data-val="1">1</button>
+    <button class="r-btn" data-key="mercy-1" data-val="2">2</button>
+    <button class="r-btn" data-key="mercy-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-mercy-2">
+  <div class="q-num">Question 55</div>
+  <div class="q-text">I am a good listener who makes people feel truly heard and understood.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="mercy-2" data-val="0">0</button>
+    <button class="r-btn" data-key="mercy-2" data-val="1">1</button>
+    <button class="r-btn" data-key="mercy-2" data-val="2">2</button>
+    <button class="r-btn" data-key="mercy-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-mercy-3">
+  <div class="q-num">Question 56</div>
+  <div class="q-text">I find it natural and fulfilling to walk alongside hurting people over the long haul.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="mercy-3" data-val="0">0</button>
+    <button class="r-btn" data-key="mercy-3" data-val="1">1</button>
+    <button class="r-btn" data-key="mercy-3" data-val="2">2</button>
+    <button class="r-btn" data-key="mercy-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-miracles-0">
+  <div class="q-num">Question 57</div>
+  <div class="q-text">I have experienced or witnessed miraculous works of God that I cannot explain naturally.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="miracles-0" data-val="0">0</button>
+    <button class="r-btn" data-key="miracles-0" data-val="1">1</button>
+    <button class="r-btn" data-key="miracles-0" data-val="2">2</button>
+    <button class="r-btn" data-key="miracles-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-miracles-1">
+  <div class="q-num">Question 58</div>
+  <div class="q-text">I have strong faith that God still performs extraordinary miracles today.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="miracles-1" data-val="0">0</button>
+    <button class="r-btn" data-key="miracles-1" data-val="1">1</button>
+    <button class="r-btn" data-key="miracles-1" data-val="2">2</button>
+    <button class="r-btn" data-key="miracles-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-miracles-2">
+  <div class="q-num">Question 59</div>
+  <div class="q-text">I feel prompted by the Holy Spirit to pray for supernatural intervention in difficult situations.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="miracles-2" data-val="0">0</button>
+    <button class="r-btn" data-key="miracles-2" data-val="1">1</button>
+    <button class="r-btn" data-key="miracles-2" data-val="2">2</button>
+    <button class="r-btn" data-key="miracles-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-miracles-3">
+  <div class="q-num">Question 60</div>
+  <div class="q-text">I am always careful to give all glory to God when He works in extraordinary ways.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="miracles-3" data-val="0">0</button>
+    <button class="r-btn" data-key="miracles-3" data-val="1">1</button>
+    <button class="r-btn" data-key="miracles-3" data-val="2">2</button>
+    <button class="r-btn" data-key="miracles-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="section-label"><span>Part 4 of 4</span><div class="section-line"></div></div>
+<div class="question-card" id="q-pastor-0">
+  <div class="q-num">Question 61</div>
+  <div class="q-text">I have a deep sense of responsibility for the spiritual well-being of a group of people.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="pastor-0" data-val="0">0</button>
+    <button class="r-btn" data-key="pastor-0" data-val="1">1</button>
+    <button class="r-btn" data-key="pastor-0" data-val="2">2</button>
+    <button class="r-btn" data-key="pastor-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-pastor-1">
+  <div class="q-num">Question 62</div>
+  <div class="q-text">I feel compelled to protect those under my care from false teaching or spiritual harm.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="pastor-1" data-val="0">0</button>
+    <button class="r-btn" data-key="pastor-1" data-val="1">1</button>
+    <button class="r-btn" data-key="pastor-1" data-val="2">2</button>
+    <button class="r-btn" data-key="pastor-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-pastor-2">
+  <div class="q-num">Question 63</div>
+  <div class="q-text">I love guiding individuals in their spiritual growth over a long period of time.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="pastor-2" data-val="0">0</button>
+    <button class="r-btn" data-key="pastor-2" data-val="1">1</button>
+    <button class="r-btn" data-key="pastor-2" data-val="2">2</button>
+    <button class="r-btn" data-key="pastor-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-pastor-3">
+  <div class="q-num">Question 64</div>
+  <div class="q-text">Teaching and nurturing others in their faith brings me deep satisfaction.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="pastor-3" data-val="0">0</button>
+    <button class="r-btn" data-key="pastor-3" data-val="1">1</button>
+    <button class="r-btn" data-key="pastor-3" data-val="2">2</button>
+    <button class="r-btn" data-key="pastor-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-prophecy-0">
+  <div class="q-num">Question 65</div>
+  <div class="q-text">I often sense what God wants to say to a group or individual in a particular moment.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="prophecy-0" data-val="0">0</button>
+    <button class="r-btn" data-key="prophecy-0" data-val="1">1</button>
+    <button class="r-btn" data-key="prophecy-0" data-val="2">2</button>
+    <button class="r-btn" data-key="prophecy-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-prophecy-1">
+  <div class="q-num">Question 66</div>
+  <div class="q-text">I am willing to speak a difficult but needed truth to others, even when it is uncomfortable.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="prophecy-1" data-val="0">0</button>
+    <button class="r-btn" data-key="prophecy-1" data-val="1">1</button>
+    <button class="r-btn" data-key="prophecy-1" data-val="2">2</button>
+    <button class="r-btn" data-key="prophecy-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-prophecy-2">
+  <div class="q-num">Question 67</div>
+  <div class="q-text">Others have confirmed that words I have spoken seemed to come directly from the Holy Spirit.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="prophecy-2" data-val="0">0</button>
+    <button class="r-btn" data-key="prophecy-2" data-val="1">1</button>
+    <button class="r-btn" data-key="prophecy-2" data-val="2">2</button>
+    <button class="r-btn" data-key="prophecy-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-prophecy-3">
+  <div class="q-num">Question 68</div>
+  <div class="q-text">I feel compelled to speak when I sense that God has laid something on my heart for others.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="prophecy-3" data-val="0">0</button>
+    <button class="r-btn" data-key="prophecy-3" data-val="1">1</button>
+    <button class="r-btn" data-key="prophecy-3" data-val="2">2</button>
+    <button class="r-btn" data-key="prophecy-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-service-0">
+  <div class="q-num">Question 69</div>
+  <div class="q-text">I find deep fulfillment in doing practical tasks that help others or the church function.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="service-0" data-val="0">0</button>
+    <button class="r-btn" data-key="service-0" data-val="1">1</button>
+    <button class="r-btn" data-key="service-0" data-val="2">2</button>
+    <button class="r-btn" data-key="service-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-service-1">
+  <div class="q-num">Question 70</div>
+  <div class="q-text">I am always looking for ways to serve in the background without needing to be noticed.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="service-1" data-val="0">0</button>
+    <button class="r-btn" data-key="service-1" data-val="1">1</button>
+    <button class="r-btn" data-key="service-1" data-val="2">2</button>
+    <button class="r-btn" data-key="service-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-service-2">
+  <div class="q-num">Question 71</div>
+  <div class="q-text">I am reliable and committed to following through on tasks I have agreed to do.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="service-2" data-val="0">0</button>
+    <button class="r-btn" data-key="service-2" data-val="1">1</button>
+    <button class="r-btn" data-key="service-2" data-val="2">2</button>
+    <button class="r-btn" data-key="service-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-service-3">
+  <div class="q-num">Question 72</div>
+  <div class="q-text">I feel energized by serving, even when the work is unglamorous or repetitive.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="service-3" data-val="0">0</button>
+    <button class="r-btn" data-key="service-3" data-val="1">1</button>
+    <button class="r-btn" data-key="service-3" data-val="2">2</button>
+    <button class="r-btn" data-key="service-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-teaching-0">
+  <div class="q-num">Question 73</div>
+  <div class="q-text">I spend significant time studying the Scriptures and love digging deep into the Word.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="teaching-0" data-val="0">0</button>
+    <button class="r-btn" data-key="teaching-0" data-val="1">1</button>
+    <button class="r-btn" data-key="teaching-0" data-val="2">2</button>
+    <button class="r-btn" data-key="teaching-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-teaching-1">
+  <div class="q-num">Question 74</div>
+  <div class="q-text">I am able to explain complex biblical truths in a way that is clear and engaging.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="teaching-1" data-val="0">0</button>
+    <button class="r-btn" data-key="teaching-1" data-val="1">1</button>
+    <button class="r-btn" data-key="teaching-1" data-val="2">2</button>
+    <button class="r-btn" data-key="teaching-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-teaching-2">
+  <div class="q-num">Question 75</div>
+  <div class="q-text">I feel energized when I see someone genuinely understand and apply biblical truth.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="teaching-2" data-val="0">0</button>
+    <button class="r-btn" data-key="teaching-2" data-val="1">1</button>
+    <button class="r-btn" data-key="teaching-2" data-val="2">2</button>
+    <button class="r-btn" data-key="teaching-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-teaching-3">
+  <div class="q-num">Question 76</div>
+  <div class="q-text">I am bothered when Scripture is misquoted, misapplied, or taken out of context.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="teaching-3" data-val="0">0</button>
+    <button class="r-btn" data-key="teaching-3" data-val="1">1</button>
+    <button class="r-btn" data-key="teaching-3" data-val="2">2</button>
+    <button class="r-btn" data-key="teaching-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-wisdom-0">
+  <div class="q-num">Question 77</div>
+  <div class="q-text">Others often seek my advice when facing difficult decisions or complex situations.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="wisdom-0" data-val="0">0</button>
+    <button class="r-btn" data-key="wisdom-0" data-val="1">1</button>
+    <button class="r-btn" data-key="wisdom-0" data-val="2">2</button>
+    <button class="r-btn" data-key="wisdom-0" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-wisdom-1">
+  <div class="q-num">Question 78</div>
+  <div class="q-text">I can see through confusion and help others find a God-honoring path forward.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="wisdom-1" data-val="0">0</button>
+    <button class="r-btn" data-key="wisdom-1" data-val="1">1</button>
+    <button class="r-btn" data-key="wisdom-1" data-val="2">2</button>
+    <button class="r-btn" data-key="wisdom-1" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-wisdom-2">
+  <div class="q-num">Question 79</div>
+  <div class="q-text">I am able to apply Scripture practically to real-life situations with good judgment.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="wisdom-2" data-val="0">0</button>
+    <button class="r-btn" data-key="wisdom-2" data-val="1">1</button>
+    <button class="r-btn" data-key="wisdom-2" data-val="2">2</button>
+    <button class="r-btn" data-key="wisdom-2" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>
+<div class="question-card" id="q-wisdom-3">
+  <div class="q-num">Question 80</div>
+  <div class="q-text">I can often sense where a course of action will lead before others can see it.</div>
+  <div class="rating-row">
+    <span class="r-lbl">Not at all</span>
+    <button class="r-btn" data-key="wisdom-3" data-val="0">0</button>
+    <button class="r-btn" data-key="wisdom-3" data-val="1">1</button>
+    <button class="r-btn" data-key="wisdom-3" data-val="2">2</button>
+    <button class="r-btn" data-key="wisdom-3" data-val="3">3</button>
+    <span class="r-lbl">Very much</span>
+  </div>
+</div>  </div><!-- /#q-container -->
+
+  <div class="submit-area">
+    <button class="btn-submit" id="submit-btn" onclick="showResults()">View My Results</button>
+    <div class="submit-note" id="submit-note">Please answer all 80 questions to see your results.</div>
+  </div>
+</div><!-- /#assessment -->
+
+<!-- RESULTS -->
+<div id="results">
+  <div class="results-hdr">
+    <div class="brand-row"><div class="brand-line"></div><span class="brand-name">Beyond the Veil</span><div class="brand-line"></div></div>
+    <h2>Your Spiritual <em>Gifts</em></h2>
+    <p class="results-sub">Prayerfully reflect on these results. Share them with a pastor, mentor, or trusted community to confirm and help you begin walking in your gifts.</p>
+  </div>
+  <div class="top-panel" id="top-panel"></div>
+  <div class="section-label"><span>All 20 Gifts — Ranked by Strength</span><div class="section-line"></div></div>
+  <div id="results-list"></div>
+  <button class="btn-restart" onclick="restart()">Retake Assessment</button>
+</div>
+
+<script>
+const GIFTS = [
+  {id:"administration",name:"Administration",scripture:"I Corinthians 12:28 · Titus 1:4–5",desc:"The Holy Spirit enables certain Christians to organize, direct, and implement plans to lead others in the various ministries of the Church. More goal and task-oriented than leadership, with a deeper concern for details and organization.",statements:["I enjoy creating systems and organizational structures for groups or ministries.","I am good at managing the details of long-range projects or events.","Others often look to me to plan and coordinate group efforts.","I find satisfaction in turning a chaotic situation into an organized one."]},
+  {id:"apostleship",name:"Apostleship",scripture:"Ephesians 4:11 · I Corinthians 12:28",desc:"The gift of apostleship empowers believers to plant new ministries and churches, cross cultures with the Gospel, raise up leaders, and take entrepreneurial risks to advance the Kingdom of God in challenging environments.",statements:["I feel a strong calling to start new ministries, churches, or mission outreaches.","I am comfortable moving into new or unfamiliar territories for the sake of the Gospel.","I tend to raise up and develop leaders who then lead others.","I am willing to take significant personal risks to advance the Kingdom of God."]},
+  {id:"discernment",name:"Discernment",scripture:"I Corinthians 12:10 · Acts 5:3–6 · 1 John 4:1",desc:"The Holy Spirit gives the gift of discernment to enable certain Christians to clearly recognize and distinguish between the influence of God, Satan, the world, and the flesh in a given situation.",statements:["I can often sense when something is spiritually right or wrong in a situation.","I am able to identify when teaching or counsel is inconsistent with Scripture.","Others have confirmed that I seem to 'read' people or situations with unusual accuracy.","I feel a strong internal warning when deception or false teaching is present."]},
+  {id:"evangelism",name:"Evangelism",scripture:"Ephesians 4:11 · Acts 8:5–12",desc:"Evangelists are given the unique ability by the Holy Spirit to clearly and effectively communicate the Gospel of Jesus Christ to others. They are burdened in their hearts for the lost and overcome the normal fear of rejection to engage non-believers.",statements:["I naturally and frequently find opportunities to share the Gospel with non-believers.","I feel a deep burden in my heart for people who do not know Christ.","I am able to explain the Gospel clearly in ways that non-believers can understand.","Seeing someone come to faith in Christ is among the greatest joys of my life."]},
+  {id:"exhortation",name:"Exhortation",scripture:"Romans 12:8 · Acts 11:23–24",desc:"Often called the 'gift of encouragement,' the Spirit gives this gift to strengthen and encourage those who are wavering in faith. Those with this gift uplift and motivate others as well as challenge and rebuke them to foster spiritual growth.",statements:["People often come to me when they need encouragement or a word of hope.","I am able to speak truth into difficult situations in a way that motivates and uplifts.","I can tell when someone needs a gentle challenge as much as comfort.","I find it natural to come alongside struggling believers and walk with them toward growth."]},
+  {id:"faith",name:"Faith",scripture:"I Corinthians 12:9 · Hebrews 11:1–40",desc:"The gift of faith is a special trust and confidence in God that allows certain believers to live boldly and expect God to move in extraordinary ways. Those with this gift take God at His Word and put the full weight of their lives in His hands.",statements:["I trust God to provide even when circumstances seem impossible or hopeless.","I regularly step out in faith, confident that God will work in ways others cannot yet see.","Others have commented on the unusual depth of my trust and confidence in God.","I am not easily shaken by setbacks because I believe God is sovereign and good."]},
+  {id:"giving",name:"Giving",scripture:"Romans 12:8 · 2 Corinthians 9:6–15",desc:"The Holy Spirit imparts this gift to some in the church to meet the various needs of the church and its ministries generously and without pretense. Those with this gift love to share with others the overflow of blessings God has given them.",statements:["I find great joy in meeting needs generously, often beyond what others would consider.","I manage my finances carefully so I can give more to the work of the Kingdom.","I feel grateful when someone shares a need with me that I am able to meet.","Giving is one of the primary ways I feel I am partnering with God in His mission."]},
+  {id:"healing",name:"Healing",scripture:"I Corinthians 12:9, 28, 30 · James 5:13–16",desc:"Gifts of healings reveal the heart and compassion of God. Those with this gift are compassionate toward the sick, pray over them regularly, and have great faith that God can and will heal — trusting His sovereign will even when healing is not granted.",statements:["I pray over the sick with genuine faith that God may heal them.","I have seen physical or emotional healing occur when I have prayed with others.","I feel a special compassion toward those who are sick, suffering, or in physical pain.","I believe God still heals today and I am willing to be used in this way."]},
+  {id:"helps",name:"Helps",scripture:"I Corinthians 12:28",desc:"Those with the gift of helps are uniquely able to identify those who are struggling and aid them with compassion and grace. They can render assistance in both practical and spiritual ways, moving toward those in need with truth spoken in love.",statements:["I notice when others are struggling and feel compelled to help without being asked.","I am happiest when I can help someone else accomplish their work or calling.","I can sense spiritual and emotional need in others and know how to come alongside them.","I prefer to work behind the scenes supporting others rather than being in the spotlight."]},
+  {id:"hospitality",name:"Hospitality",scripture:"Romans 12:13 · I Peter 4:9 · Hebrews 13:2",desc:"Hospitality is a deep love for strangers and guests, expressed by making others feel genuinely welcome and cared for. Those with this gift open their homes and hearts freely, creating environments where community and belonging flourish.",statements:["I genuinely enjoy hosting people in my home and making them feel warmly welcomed.","I notice when someone feels left out or like they don't belong and move toward them.","I go out of my way to make new people feel comfortable in a group setting.","Creating a welcoming, comfortable environment for others brings me real satisfaction."]},
+  {id:"intercession",name:"Intercession",scripture:"Romans 8:26–27 · I Timothy 2:1–2",desc:"The gift of Intercession is the God-given ability to consistently pray on behalf of and for others, seeing frequent and specific results. Those with this gift are committed to regular, fervent prayer for the needs of others, the church, and the world.",statements:["I spend significant time in prayer specifically on behalf of others.","I feel a deep burden to pray for people and situations until I sense a breakthrough.","Others have told me that my prayers seem particularly effective and focused.","Prayer is not a duty for me but a heartfelt conversation with God for those in need."]},
+  {id:"knowledge",name:"Knowledge",scripture:"I Corinthians 12:8 · Romans 15:14",desc:"The gift of knowledge is an understanding of the things in this world founded in the Gospel and rooted in the Scriptures. Those with this gift are well-versed in Scripture and bring understanding to the church, connecting biblical truth to all of life.",statements:["I love studying the Scriptures and often discover truths others have missed.","I am able to recall and apply biblical truth to specific situations with accuracy.","People often seek me out to explain or shed light on confusing scriptural passages.","I have a deep desire to know and understand God's Word at its deepest levels."]},
+  {id:"leadership",name:"Leadership",scripture:"Romans 12:8 · I Thessalonians 5:12 · I Timothy 3:4–5",desc:"The spiritual gift of leadership is people-oriented — focused on leading others into deeper relationship with Christ and each other. Leaders are visionary, willing to take risks for the Kingdom, and measure their success by how well they help others grow.",statements:["People naturally gravitate to me for direction and look to me in uncertain situations.","I can cast a compelling vision and motivate others to work toward it together.","I am willing to make difficult decisions and lead others through challenging seasons.","I measure my success as a leader by the growth and flourishing of those I lead."]},
+  {id:"mercy",name:"Mercy",scripture:"Romans 12:8 · Matthew 5:7 · James 3:17",desc:"Those with the gift of mercy have great empathy for others in their trials and are able to come alongside people over extended periods of time. They are sensitive to the feelings and circumstances of others and feel the need to simply 'be there.'",statements:["I feel the pain and suffering of others deeply and am moved to respond with compassion.","I can sit with someone in their suffering without feeling the need to 'fix' things.","I am a good listener who makes people feel truly heard and understood.","I find it natural and fulfilling to walk alongside hurting people over the long haul."]},
+  {id:"miracles",name:"Miracles",scripture:"I Corinthians 12:10, 28–29 · Galatians 3:5",desc:"Those with this gift have a heightened sensitivity to the presence and power of God and a special measure of faith for God to reveal Himself through extraordinary works. They do not seek recognition but constantly point others to Jesus.",statements:["I have experienced or witnessed miraculous works of God that I cannot explain naturally.","I have strong faith that God still performs extraordinary miracles today.","I feel prompted by the Holy Spirit to pray for supernatural intervention in difficult situations.","I am always careful to give all glory to God when He works in extraordinary ways."]},
+  {id:"pastor",name:"Pastor / Shepherd",scripture:"Ephesians 4:11 · Acts 20:28 · John 10:11–18",desc:"The spiritual gift of pastor empowers believers to guide, protect, feed, and nurture a community of faith. Pastors are first and foremost servants who love to teach God's Word, guard their flock from error, and walk with people in discipleship.",statements:["I have a deep sense of responsibility for the spiritual well-being of a group of people.","I feel compelled to protect those under my care from false teaching or spiritual harm.","I love guiding individuals in their spiritual growth over a long period of time.","Teaching and nurturing others in their faith brings me deep satisfaction."]},
+  {id:"prophecy",name:"Prophecy",scripture:"Romans 12:6 · I Corinthians 12:10 · Ephesians 4:11–12",desc:"The gift of prophecy is the ability to receive a divinely inspired message — of exhortation, correction, comfort, or revelation — and deliver it to others for the edification of the Body. These messages must be tested against Scripture.",statements:["I often sense what God wants to say to a group or individual in a particular moment.","I am willing to speak a difficult but needed truth to others, even when it is uncomfortable.","Others have confirmed that words I have spoken seemed to come directly from the Holy Spirit.","I feel compelled to speak when I sense that God has laid something on my heart for others."]},
+  {id:"service",name:"Service",scripture:"Romans 12:7 · I Corinthians 12:4–7, 28",desc:"The Holy Spirit endows some believers with the gift of service to fill the gaps of ministry and meet the needs of the church. Those with this gift are committed to the spread of the Gospel and do not seek recognition — they simply love to help.",statements:["I find deep fulfillment in doing practical tasks that help others or the church function.","I am always looking for ways to serve in the background without needing to be noticed.","I am reliable and committed to following through on tasks I have agreed to do.","I feel energized by serving, even when the work is unglamorous or repetitive."]},
+  {id:"teaching",name:"Teaching",scripture:"Ephesians 4:11 · I Corinthians 12:28 · Romans 12:7",desc:"Teachers love to study the Word of God for extended periods and communicate it effectively — explaining what the Bible says, what it means, and how to apply it. They are stewards of truth who love to see others learn and grow in understanding.",statements:["I spend significant time studying the Scriptures and love digging deep into the Word.","I am able to explain complex biblical truths in a way that is clear and engaging.","I feel energized when I see someone genuinely understand and apply biblical truth.","I am bothered when Scripture is misquoted, misapplied, or taken out of context."]},
+  {id:"wisdom",name:"Wisdom",scripture:"I Corinthians 12:8 · James 3:13–18 · Colossians 1:9–10",desc:"The gift of wisdom is the intimate understanding of God's Word that results in holy and upright living. Those with this gift can see through the confusion of a situation, recognize where decisions may lead, and give direction that glorifies God.",statements:["Others often seek my advice when facing difficult decisions or complex situations.","I can see through confusion and help others find a God-honoring path forward.","I am able to apply Scripture practically to real-life situations with good judgment.","I can often sense where a course of action will lead before others can see it."]},
+];
+
+const TOTAL = 80;
+let answers = {};
+
+// Wire up rating buttons
+document.querySelectorAll('.r-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.key;
+    const val = parseInt(btn.dataset.val);
+    answers[key] = val;
+    // Update button states
+    document.querySelectorAll(`.r-btn[data-key="${key}"]`).forEach(b => {
+      b.classList.toggle('sel', parseInt(b.dataset.val) === val);
+    });
+    // Mark card answered
+    document.getElementById('q-' + key).classList.add('answered');
+    updateProgress();
+  });
+});
+
+function updateProgress() {
+  const n = Object.keys(answers).length;
+  const pct = Math.round(n / TOTAL * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-lbl').textContent = n + ' of ' + TOTAL + ' answered';
+  const btn = document.getElementById('submit-btn');
+  const done = n === TOTAL;
+  btn.classList.toggle('ready', done);
+  btn.disabled = !done;
+  document.getElementById('submit-note').textContent = done
+    ? 'All questions answered — ready to view your results!'
+    : 'Please answer all 80 questions to see your results.';
+}
+
+function showResults() {
+  const scores = GIFTS.map(g => {
+    let total = 0;
+    g.statements.forEach((_,si) => { total += answers[g.id+'-'+si] || 0; });
+    const max = g.statements.length * 3;
+    return { g, total, max, pct: Math.round(total/max*100) };
+  }).sort((a,b) => b.total - a.total);
+
+  document.getElementById('assessment').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+
+  const top3 = scores.slice(0,3);
+  document.getElementById('top-panel').innerHTML =
+    '<div class="top-panel-h">Your Primary Gifts</div>' +
+    '<div class="top-names">' + top3.map((s,i) => '<span>'+s.g.name+'</span>'+(i<2?' <span style="color:rgba(255,255,255,.25);margin:0 8px">·</span> ':'')).join('') + '</div>' +
+    '<p class="top-note">These are the gifts that appear most prominently in your responses. Prayerfully reflect on them and bring them to a trusted pastor or mentor to confirm and activate.</p>';
+
+  const list = document.getElementById('results-list');
+  list.innerHTML = '';
+  scores.forEach((s, idx) => {
+    const isTop = idx < 3;
+    const div = document.createElement('div');
+    div.className = 'r-card' + (isTop ? ' top' : '');
+    div.innerHTML =
+      '<div class="r-card-hdr" onclick="toggle(this)">' +
+        '<div class="r-rank">'+(idx+1)+'</div>' +
+        '<div class="r-name-wrap"><span class="r-name">'+s.g.name+'</span>'+(isTop?'<span class="top-badge">Top Gift</span>':'')+' </div>' +
+        '<div class="bar-wrap"><div class="bar-track"><div class="bar-fill" data-pct="'+s.pct+'"></div></div><div class="bar-lbl">'+s.total+' / '+s.max+' pts</div></div>' +
+        '<div class="chevron'+(isTop?' open':'')+'">▾</div>' +
+      '</div>' +
+      '<div class="r-card-body'+(isTop?' open':'')+'">' +
+        '<div class="gift-desc">'+s.g.desc+'</div>' +
+        '<div class="gift-scripture">✦ '+s.g.scripture+'</div>' +
+      '</div>';
+    list.appendChild(div);
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.pct + '%'; });
+  }, 80);
+
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggle(hdr) {
+  hdr.nextElementSibling.classList.toggle('open');
+  hdr.querySelector('.chevron').classList.toggle('open');
+}
+
+function restart() {
+  answers = {};
+  document.querySelectorAll('.r-btn').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
+  document.getElementById('prog-fill').style.width = '0%';
+  document.getElementById('prog-lbl').textContent = '0 of 80 answered';
+  const btn = document.getElementById('submit-btn');
+  btn.classList.remove('ready');
+  btn.disabled = true;
+  document.getElementById('submit-note').textContent = 'Please answer all 80 questions to see your results.';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('assessment').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</div>
+</body>
+</html>
